@@ -1,0 +1,36 @@
+﻿#tales {
+    width: 100%;
+    height: 400px;
+}
+#logo{
+    margin-top:20px;
+}
+#navbar {
+    height:40px;
+}
+#navbartext {
+    margin-left:300px;
+}
+#frmsearch{
+    margin-top:16px;
+}
+.Myheader {
+    background-color: #f6f6f6;
+    height: 100px;
+}
+
+#headerh {
+    color: red;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.imgtelephone {
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.imgh2 {
+    margin-left: 55px;
+}
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aa43af89e88d4213bb9d90a62d74d63d" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="RentACarModel.CarImage" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="RentACarModel.Cars" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="RentACarModel.Roles" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="RentACarModel.Tenant" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="RentACarModel.Users" Width="1.5" PointX="3" PointY="1.25" />
+        <AssociationConnector Association="RentACarModel.FK_CarImageId_CarsId" />
+        <AssociationConnector Association="RentACarModel.FK_TenantId_CarsId" />
+        <AssociationConnector Association="RentACarModel.FK_UsersId_RolesId" />
+        <AssociationConnector Association="RentACarModel.FK_TenantId_UsersId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

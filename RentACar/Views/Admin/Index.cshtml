@@ -1,0 +1,162 @@
+﻿@model IEnumerable<RentACar.Models.Cars>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<form class="p-5" id="frmCarSearch">
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="inputZip">Id</label>
+
+            <input type="text" class="form-control" name="Id">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputZip">Araba Markası</label>
+            <input type="text" class="form-control" name="Brand">
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="inputZip">Araba Modeli</label>
+            <input type="text" class="form-control" name="Model">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Maks. Hız</label>
+            <input type="text" class="form-control" name="MaksSpeed">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCategory">Vites</label>
+
+            <select id="inputCategory" class="form-control" name="Gear">
+
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var item in ViewBag.Categories)
+                    {
+                        <option value="item.Id">item.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" name="IsSubtitle">
+            <label class="form-check-label" for="gridCheck">
+                Türkçe Dublaj
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary float-lg-right">Listele</button>
+    </div>
+</form>
+
+
+
+<div class="form-group">
+    <button type="button" class="btn btn-primary float-lg-right" data-toggle="modal" data-target=".bd-example-modal-lg">Yeni Kayıt</button>
+</div>
+
+
+
+<table class="table" id="tblCarList">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Araba Markası</th>
+            <th>Araba Modeli</th>
+            <th>Vites</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a href="/Admin/Edit/@item.Id">Edit</a>
+            </td>
+            <td>@item.Id</td>
+            <td>@item.Brand</td>
+            <td>@item.Model</td>
+            <td>@item.Gear</td>
+            <td>
+                <a class="btn btn-primary delete-row" data-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@*<---modal--->*@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form class="p-5" action="/Admin/Create" method="POST" id="frmCarCreate" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Araba Markası</label>
+                        <input type="text" class="form-control" name="Brand">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Araba Modeli</label>
+                        <input type="text" class="form-control" name="Model">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Maks. Hız</label>
+                        <input type="text" class="form-control" name="MaksSpeed">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Araç Açıklaması</label>
+                        <input type="text" class="form-control" name="explanation">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputZip">Vites</label>
+                        <input type="text" class="form-control" name="Gear">
+                    </div>
+                        <div class="form-group has-info col-md-6">
+                            <label for="inputZip">Ana Resim (Anasayfada Görülecek olan resimdir.)</label>
+                            <label for="txtCvFile" class="control-label bold"></label>
+                            <input type="file" name="cvfile" id="txtCvFile">
+                        </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group has-info">
+                            <label for="inputZip">Yan Resim (Yan resimler detay sayfasında gözükür.)</label>
+                            <label for="txtCvFile" class="control-label bold"></label>
+                            <input type="file" name="cvfiles1" id="txtCvFile1">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group has-info">
+                            <label for="inputZip">Yan Resim</label>
+                            <label for="txtCvFile" class="control-label bold"></label>
+                            <input type="file" name="cvfiles2" id="txtCvFile2">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group has-info">
+                            <label for="inputZip">Yan Resim</label>
+                            <label for="txtCvFile" class="control-label bold"></label>
+                            <input type="file" name="cvfiles3" id="txtCvFile3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary float-lg-right">Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

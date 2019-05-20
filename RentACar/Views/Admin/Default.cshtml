@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RentACar.Models.Tenant>
+@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<form class="p-5" id="frmTenant">
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputZip">Ad</label>
+            <input type="text" class="form-control" name="Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Soyad</label>
+            <input type="text" class="form-control" name="SurName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Telefon Numarası</label>
+            <input type="text" class="form-control" name="TelNumber">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Email</label>
+            <input type="text" class="form-control" name="Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Arac Kiralama Tarihi</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="datetime-local" class="form-control" name="BuyDate">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputZip">Araç İade Tarihi</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="datetime-local" class="form-control" name="ReturnDate">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <label for="inputCategory">Arabalar</label>
+
+    <select id="inputCategory" class="form-control" name="Cars">
+        <option>Seçiniz...</option>
+        @if (ViewBag.Cars != null)
+        {
+            foreach (var item in ViewBag.Cars)
+            {
+
+                <option value="item.Id">Marka: @item.Brand ---- Model: @item.Model</option>
+            }
+        }
+    </select>
+ 
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary float-lg-right" id="tenantbutton"    style=" margin-top:20px; margin-right:400px; width:150px;">Kirala...</button>
+    </div>
+</form>
+
+

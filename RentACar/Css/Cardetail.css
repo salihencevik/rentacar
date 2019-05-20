@@ -1,0 +1,39 @@
+﻿body {
+    background-color: #100e17;
+}
+#carouselExampleFade {
+    width: 500px;
+    height: 400px;
+    margin-top:30px;
+}
+#table {
+    width: 500px;
+    height: 200px;
+}
+#hd {
+    color:white;
+}
+#insurance {
+    width: 560px;
+    height: 400px;
+    text-align: center;
+    margin-left: 50px;
+}
+#Contact {
+    width: 270px;
+    height: 400px;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: -55px;
+}
+#delivery {
+    width: 280px;
+    height: 400px;
+    text-align: center;
+    margin-left: 330px;
+    margin-top: -119px;
+}
+#imgwhatsapp{
+    margin-top:15px;
+    margin-left:50px;
+}
